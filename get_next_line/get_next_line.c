@@ -17,21 +17,62 @@ int get_next_line(int fd, char **line)
     while (isbarran(s_line) == -1  && result >= 1 && result <= BUFFER_SIZE)
     {
         result = read(fd, buffer, BUFFER_SIZE);
-		//printf("linha lida: %s\n", buffer);
+		// printf("Do GNL: linha lida: %s\n", buffer);
         if (result >= 1 && result <= BUFFER_SIZE && s_line)
 		{
             s_line = ft_strjoin(s_line, buffer);
-			//printf("linha lida: %s\n", s_line);
+			// printf("Do GNL:linha lida: %s\n", s_line);
 		}
         ft_bzero(buffer);
     }
-    //if (result >= 0 && result <= BUFFER_SIZE)
-    //    s_line = cleanline(line, s_line);
+    if (result >= 0 && result <= BUFFER_SIZE)
+       s_line = cleanline(line, s_line);
 	free(buffer);
-	printf("result: %s\n", s_line);
+	// printf("Do GNL:result: %s\n", s_line);
     if (result >= 1 && result <= BUFFER_SIZE)
         return (1);
     return (result == 0 ? 0 : -1);
+}
+
+char *cleanline(char **line, char *s_line)
+{
+    char    *tmp;
+    int     pos;
+
+    pos = isbarran(s_line);
+    if (pos >= 0)
+    {
+        s_line[pos] = '\0';
+        *line = ft_calloc(pos + 1, sizeof(char));
+        tmp = ft_calloc(ft_strlen(&s_line[pos + 1]) + 1, sizeof(char));
+        ft_strlcpy(*line, s_line, pos);
+        ft_strlcpy(tmp, &s_line[pos + 1], ft_strlen(&s_line[pos + 1]) + 1);
+        free(s_line);
+        s_line = NULL;
+        return (tmp);
+    }
+    return (NULL);
+}
+
+size_t    ft_strlcpy(char *dst, char *src, size_t dstsize)
+{
+    size_t    i;
+    size_t    srclen;
+
+    if (dst == 0 || src == 0)
+        return (0);
+    i = 0;
+    srclen = ft_strlen(src);
+    if (dstsize)
+    {
+        while (src[i] && i < dstsize - 1)
+        {
+            dst[i] = src[i];
+            i++;
+        }
+        dst[i] = 0;
+    }
+    return (srclen);
 }
 
 int isbarran(char *string)

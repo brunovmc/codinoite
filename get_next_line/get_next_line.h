@@ -8,10 +8,10 @@
 int		get_next_line(int fd, char **line);
 int		isbarran(char *s_line);
 char	*ft_strjoin(char *s1, char *s2);
-//char	*cleanline(char **line, char *s_line, int index_newline);
+char	*cleanline(char **line, char *s_line);
 size_t	ft_strlen(char *str);
 void	ft_bzero(char *str);
 char	*ft_calloc(size_t count, size_t size);
-//size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
+size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 
 #endif
