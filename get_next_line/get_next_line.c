@@ -1,3 +1,39 @@
+#include "get_next_line.h"
+#include <stdio.h>
+
+int get_next_line(int fd, char **line)
+{
+    static char *s_line;
+    char        *buffer;
+    int         result;
+
+    if (fd < 0 || BUFFER_SIZE < 1 || !(line))
+        return (-1);
+	result = 1;
+	*line = NULL;
+	buffer = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+    if (!(s_line))
+        s_line = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+    while (isbarran(s_line) == -1  && result >= 1 && result <= BUFFER_SIZE)
+    {
+        result = read(fd, buffer, BUFFER_SIZE);
+		//printf("linha lida: %s\n", buffer);
+        if (result >= 1 && result <= BUFFER_SIZE && s_line)
+		{
+            s_line = ft_strjoin(s_line, buffer);
+			//printf("linha lida: %s\n", s_line);
+		}
+        ft_bzero(buffer);
+    }
+    //if (result >= 0 && result <= BUFFER_SIZE)
+    //    s_line = cleanline(line, s_line);
+	free(buffer);
+	printf("result: %s\n", s_line);
+    if (result >= 1 && result <= BUFFER_SIZE)
+        return (1);
+    return (result == 0 ? 0 : -1);
+}
+
 int isbarran(char *string)
 {
     int i;
@@ -12,34 +48,6 @@ int isbarran(char *string)
         i++;
     }
     return (-1);
-}
-
-int get_next_line(int fd, char **line)
-{
-    static char *s_line;
-    char        buffer;
-    int         result;
-
-    if (fd < 0 || BUFFER_SIZE < 1 || !(line))
-        return (-1);
-	result = 1;
-	*line = NULL;
-	buffer = (char *)ft_calloc((BUFFER_SIZE + 1), sizeof(char));
-    if (!(s_line))
-        s_line = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-    while (isbarran(s_line) == -1  && result >= 1 && result <= BUFFER_SIZE)
-    {
-        result = read(fd, buffer, BUFFER_SIZE);
-        if (result >= 1 && result <= BUFFER_SIZE && s_line)
-            s_line = ft_strjoin(s_line, buffer);
-        bzero(buffer);
-    }
-    if (result >= 0 && result <= BUFFER_SIZE)
-        s_line = cleanline(line, s_line);
-	free(buffer);
-    if (result >= 1 && result <= BUFFER_SIZE)
-        return (1);
-    return (result == 0 ? 0 : -1);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -65,4 +73,52 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	free(s1);
 	return (str);
+}
+
+size_t	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str)
+	{
+		while (str[i] != '\0')
+			i++;
+	}
+	return (i);
+}
+
+char	*ft_calloc(size_t count, size_t size)
+{
+	char		*str;
+	size_t		i;
+
+	if (count > 1000000)
+		count = 1000000;
+	str = (char *)malloc(count * size);
+	i = 0;
+	if (str)
+	{
+		while (i < count)
+		{
+			str[i] = '\0';
+			i++;
+		}
+	}
+	return (str);
+}
+
+void	ft_bzero(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str)
+	{
+		while (i < BUFFER_SIZE && i < 1000000)
+		{
+			str[i] = '\0';
+			i++;
+		}
+	}
 }
