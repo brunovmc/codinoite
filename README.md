@@ -20,8 +20,9 @@ a função deve retornar:
 - (0) 	- se chagar no fim do arquivo (\0)
 - (-1)	- se houver um erro 
  
-nota:	codigo na master esta atrasado, procure o codigo mais recente outras branchs
+nota:
 
+	codigo na master esta atrasado, procure o codigo mais recente outras branchs
 	isso sera corrigido na proxima quarta-feira
 
 ### Colabore
