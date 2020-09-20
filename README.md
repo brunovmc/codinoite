@@ -6,7 +6,7 @@ Todas as quartas e sextas as 22h no canal do Discord referente ao projeto atual
 
 ## Projeto Atual: get next line
 ```
-[https://github.com/brunovmc/codinoite/tree/master/get_next_line]
+[get_next_line](https://github.com/brunovmc/codinoite/tree/master/get_next_line)
 ```
 
 ## Colabore
