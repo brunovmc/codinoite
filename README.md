@@ -27,6 +27,14 @@ nota:
 
 ******
 
+## Projetos Futuros
+
+1. ft_printf
+2. ft_server
+
+
+******
+
 ## Colabore
 
 Envie uma DM para bvidigal#1295 no Discord para tornar-se colaborador(a)
