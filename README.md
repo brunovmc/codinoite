@@ -10,23 +10,23 @@ Todas as quartas e sextas as 22h no canal do Discord referente ao projeto atual.
 int	get_next_line(int fd, char **line);
 ```
 
-leia um arquivo de texto (fd) e guarde o valor de cada linha em (**line)
+Leia um arquivo de texto `fd` e guarde o valor de cada linha em `**line`
 
-se chamada em loop (**line) deve contar o valor da proxima linha (caso houver)
+se chamada em loop `**line` deve contar o valor da proxima linha (caso houver)
 
 a funcao deve retornar:
 
 - (1) 	- se achar uma quebra de linha (\n)
 - (0) 	- se chager no fim do arquivo (\0)
 - (-1)	- se houver um erro 
-
-PDF: 
+ 
+*codigo na master esta atrasado, procure o codigo mais em dia em outras branchs
 
 ## Colabore
 
 Envie uma DM para bvidigal#1295 no Discord para tornar-se colaborador(a)
 
-## Instrucoes
+## Instruções
 
 Clonar o projeto
 
