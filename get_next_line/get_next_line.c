@@ -45,13 +45,17 @@ char *cleanline(char **line, char *s_line)
         s_line[pos] = '\0';
         *line = ft_calloc(pos + 1, sizeof(char));
         tmp = ft_calloc(ft_strlen(&s_line[pos + 1]) + 1, sizeof(char));
-        ft_strlcpy(*line, s_line, pos);
+        ft_strlcpy(*line, s_line, pos + 1); //adicionamos + 1 no pos por conta do indice
         ft_strlcpy(tmp, &s_line[pos + 1], ft_strlen(&s_line[pos + 1]) + 1);
         free(s_line);
         s_line = NULL;
         return (tmp);
     }
-    return (NULL);
+    *line = (char*)ft_calloc(ft_strlen(s_line) + 1, sizeof(char));
+	ft_strlcpy(*line, s_line, ft_strlen(s_line) + 1);
+	free(s_line);
+	s_line = NULL;
+	return (s_line);
 }
 
 size_t    ft_strlcpy(char *dst, char *src, size_t dstsize)
