@@ -7,8 +7,8 @@ int get_next_line(int fd, char **line)
     char        *buffer;
     int         result;
 
-    if (fd < 0 || BUFFER_SIZE < 1 || !(line))
-        return (-1);
+    if (fd < 0 || BUFFER_SIZE < 1 || !line)
+	    return (-1);
 	result = 1;
 	*line = NULL;
 	buffer = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
