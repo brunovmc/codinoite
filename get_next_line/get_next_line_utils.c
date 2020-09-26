@@ -1,29 +1,41 @@
-size_t    ft_strlcpy(char *dst, char *src, size_t dstsize)
-{
-    size_t    i;
-    size_t    srclen;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hcastanh <hcastanh@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/25 22:34:15 by hcastanh          #+#    #+#             */
+/*   Updated: 2020/09/25 22:34:15 by hcastanh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    if (dst == 0 || src == 0)
-        return (0);
-    i = 0;
-    srclen = ft_strlen(src);
-    if (dstsize)
-    {
-        while (src[i] && i < dstsize - 1)
-        {
-            dst[i] = src[i];
-            i++;
-        }
-        dst[i] = 0;
-    }
-    return (srclen);
+size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	srclen;
+
+	if (dst == 0 || src == 0)
+		return (0);
+	i = 0;
+	srclen = ft_strlen(src);
+	if (dstsize)
+	{
+		while (src[i] && i < dstsize - 1)
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = 0;
+	}
+	return (srclen);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char			*str;
-	int	i;
-	int	j;
+	char	*str;
+	int		i;
+	int		j;
 
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);
