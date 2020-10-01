@@ -4,7 +4,28 @@ Grupo aberto de estudo para cadetes da 42sp.
 
 Todas as quartas e sextas as 22h no canal do Discord referente ao projeto atual.
 
-## Projeto Atual: [get_next_line](https://github.com/brunovmc/codinoite/tree/master/get_next_line)
+## Projeto Atual: [ft_printf](https://github.com/brunovmc/codinoite/tree/master/ft_printf)
+
+```c
+int	ft_printf(const char *str,...);
+```
+Recriando o printf.
+
+### Conversoes obrigatorias
+
+```
+cspdiuxX%
+```
+
+Flags
+
+```
+-0.*
+```
+e campo minimo de largura com todas as conversoes
+
+
+## Projetos Passados: [get_next_line](https://github.com/brunovmc/codinoite/tree/master/get_next_line)
 
 ```c
 int	get_next_line(int fd, char **line);
