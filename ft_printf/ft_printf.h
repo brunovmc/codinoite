@@ -3,10 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcastanh <hcastanh@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: lcandido <lcandido@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 22:13:53 by hcastanh          #+#    #+#             */
-/*   Updated: 2020/09/30 22:13:54 by hcastanh         ###   ########.fr       */
+/*   Updated: 2020/10/01 00:37:03 by lcandido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+
+# include <unistd.h>
+# include <stdarg.h>
+
+int				ft_putchar(char c);
+int				ft_printf(const char *str, ...);
+
+#endif

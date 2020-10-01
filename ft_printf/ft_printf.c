@@ -6,13 +6,12 @@
 /*   By: lcandido <lcandido@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 22:13:48 by hcastanh          #+#    #+#             */
-/*   Updated: 2020/10/01 00:15:10 by lcandido         ###   ########.fr       */
+/*   Updated: 2020/10/01 00:37:46 by lcandido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include <stdio.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
 int ft_putchar(char c)
 {
