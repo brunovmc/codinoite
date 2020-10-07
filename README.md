@@ -11,7 +11,7 @@ int	ft_printf(const char *str,...);
 ```
 Recriando o printf.
 
-### Conversoes obrigatorias
+### Conversões obrigatorias
 
 ```
 cspdiuxX%
@@ -22,7 +22,7 @@ Flags
 ```
 -0.*
 ```
-e campo minimo de largura com todas as conversoes
+e campo minimo de largura com todas as conversões
 
 
 ## Projetos Passados: [get_next_line](https://github.com/brunovmc/codinoite/tree/master/get_next_line)
