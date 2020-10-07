@@ -16,7 +16,11 @@
 # include <unistd.h>
 # include <stdarg.h>
 
+# include <stdio.h>
+
 int				ft_putchar(char c);
 int				ft_printf(const char *str, ...);
+int				ft_printf_c(va_list args);
+void				ft_init(t_flags *flags);
 
 #endif
