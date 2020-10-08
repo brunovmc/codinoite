@@ -6,7 +6,7 @@
 /*   By: hcastanh <hcastanh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 22:13:53 by hcastanh          #+#    #+#             */
-/*   Updated: 2020/10/07 22:27:32 by hcastanh         ###   ########.fr       */
+/*   Updated: 2020/10/08 00:03:55 by hcastanh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <limits.h>
 
 # include <stdio.h>
+# include <ctype.h>
 
 typedef struct	s_flags {
 	int		len;

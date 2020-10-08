@@ -6,7 +6,7 @@
 /*   By: hcastanh <hcastanh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 23:04:30 by hcastanh          #+#    #+#             */
-/*   Updated: 2020/10/07 23:55:17 by hcastanh         ###   ########.fr       */
+/*   Updated: 2020/10/08 00:13:35 by hcastanh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,8 @@ int		ft_checkflags(char *str, t_flags *flags)
 	int		i;
 
 	i = 0;
-
 	while (str[i] == '-' || str[i] == '.' || str[i] == '*' ||
-	ft_isdigit(str[i]))
+	isdigit(str[i]))
 	{
 		if (str[i] == '-')
 			flags->minus = 1;
@@ -104,8 +103,11 @@ int		ft_checkflags(char *str, t_flags *flags)
 			flags->prec = 0;
 		if (str[i] == '0' && !flags->minus)
 			flags->zero = 0;
-		if (ft_isdigit(str[i]))
+		if (isdigit(str[i]))
+		{
+			continue;
 			//TODO;
+		}
 		i++;
 	}
 	return(i);
