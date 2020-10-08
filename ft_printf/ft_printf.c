@@ -6,7 +6,7 @@
 /*   By: hcastanh <hcastanh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 23:04:30 by hcastanh          #+#    #+#             */
-/*   Updated: 2020/10/03 00:07:01 by hcastanh         ###   ########.fr       */
+/*   Updated: 2020/10/07 23:55:17 by hcastanh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,37 @@ int		ft_printf_c(va_list args)
 
 void	ft_init(t_flags *flags)
 {
-	flags->length = 0;
+	flags->len = 0;
 	flags->width = 0;
-	flags->precision = -1;
+	flags->prec = -1;
 	flags->minus = 0;
 	flags->star = 0;
 	flags->zero = 0;
-	flags->format = '\0';
+	flags->conv = '\0';
+}
+
+int		ft_checkflags(char *str, t_flags *flags)
+{
+	int		i;
+
+	i = 0;
+
+	while (str[i] == '-' || str[i] == '.' || str[i] == '*' ||
+	ft_isdigit(str[i]))
+	{
+		if (str[i] == '-')
+			flags->minus = 1;
+		if (str[i] == '*')
+			flags->star = 1;
+		if (str[i] == '.')
+			flags->prec = 0;
+		if (str[i] == '0' && !flags->minus)
+			flags->zero = 0;
+		if (ft_isdigit(str[i]))
+			//TODO;
+		i++;
+	}
+	return(i);
 }
 
 int		ft_printf(const char *str, ...)
@@ -96,14 +120,14 @@ int		ft_printf(const char *str, ...)
 
 	count = 0;
 	i = 0;
-	va_start(args, str);
+	va_start(args, str); 
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
 			ft_init(&flags);
 			i++;
-			if ( str[i] == 'c')
+			if (str[i] == 'c')
 				count += ft_printf_c(args);
 		}
 		else
@@ -119,8 +143,25 @@ int main()
 	int i;
 
 	i = 0;
+	i = printf("bbb%10.0cbbbbbbbbbbbbb\n", 'A');
+	printf("%d\n", i);
+
+	i = 0;
+	i = printf("bbb%10.cbbbbbbbbbbbbb\n", 'A');
+	printf("%d\n", i);
+
+	i = 0;
 	i = printf("bbb%10cbbbbbbbbbbbbb\n", 'A');
 	printf("%d\n", i);
+
+	i = 0;
+	i = printf("bbb%*cbbbbbbbbbbbbb\n", 10, 'A');
+	printf("%d\n", i);
+
+	i = 0;
+	i = printf("bbb%-10cbbbbbbbbbbbbb\n", 'A');
+	printf("%d\n", i);
+
 	i = 0;
 	i = ft_printf("bbb%cbbbbbbbbbbbbb\n", 'A');
 	printf("%d\n", i);
