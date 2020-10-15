@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcandido <lcandido@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: bvidigal <bvidigal@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 23:04:30 by hcastanh          #+#    #+#             */
-/*   Updated: 2020/10/10 01:04:39 by lcandido         ###   ########.fr       */
+/*   Updated: 2020/10/14 23:39:09 by bvidigal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,8 @@ int		ft_printf_c(va_list args, t_flags *flags)
 	char	c;
 
 	count = 0;
-
+	//aqui entra funcao da flags->star
 	c = va_arg(args, int);
-	/*
-	if (flags->minus)
-	{
-		count += ft_putchar(c);
-		while (flags->width-- > 1)
-			count += ft_putchar(' ');
-	}
-	else
-	{
-		while (flags->width-- > 1)
-			count += ft_putchar(' ');
-		count += ft_putchar(c);
-	}
-	*/
-
 	if (flags->minus)
 		count += ft_putchar(c);
 	while (flags->width-- > 1)
@@ -70,31 +55,18 @@ int		ft_printf_c(va_list args, t_flags *flags)
 
 
 
-/*
-** int		isconversion(va_list args)
-** {
-**
-**
-** 	int	count;
-**
-** 	count = 0;
-**
-** 	if (args == 'c')
-** 	{
-** 		count += ft_printf_c(args);
-** 	}
-** 	else if (args == 'd' || args == 'i')
-** 	{
-** 		count += ft_printf_d(args);
-** 	}
-** 	else if (args == 's')
-** 	{
-** 		count += ft_printf_s(args);
-** 	}
-**
-** 	return (count);
-** }
-*/
+int		ft_isconversion(va_list args, t_flags *flags)
+{
+	int	count;
+	count = 0;
+	if (flags->conv == 'c')
+		count += ft_printf_c(args, flags);
+	// else if (flags->conv == 'd' || flags->conv == 'i')
+	// 	count += ft_printf_d(args, flags);
+	// else if (flags->conv == 's')
+	// 	count += ft_printf_s(args, flags);
+	return (count);
+}
 
 void	ft_init(t_flags *flags)
 {
@@ -114,6 +86,8 @@ int		ft_isnum(int c)
 	return (0);
 }
 
+
+
 int		ft_checkflags(const char *str, t_flags *flags)
 {
 	int		i;
@@ -128,8 +102,12 @@ int		ft_checkflags(const char *str, t_flags *flags)
 			flags->zero = 0;
 		}
 		if (str[i] == '*')
-			flags->star = 1;
-			 /////// falta mexer nessa caralha vei
+		{
+			if (flags->prec == -1) // se nao tiver um ponto ainda
+				flags->star = 1; //flags->star relacionada ao width
+			else
+				flags->star = flags->star == 0 ? 2 : 3; // 2 para precisao  ---- 3 para largura e precisao
+		}
 		if (str[i] == '.')
 			flags->prec = (flags->prec == PRECISION_EMPTY) ? 0 : PRECISION_TWIN;
 		if (str[i] == '0' && !flags->minus && flags->width == 0)
@@ -170,8 +148,7 @@ int		ft_printf(const char *str, ...)
 			ft_init(&flags);
 			ft_checkflags(&str[i], &flags);
 			i += flags.len;
-			if (str[i] == 'c')
-				count += ft_printf_c(args, &flags);
+			count += ft_isconversion(args, &flags);
 		}
 		else
 			count += ft_putchar(str[i]);
