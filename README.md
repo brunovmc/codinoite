@@ -85,7 +85,9 @@ git checkout [nome da branch]
 ```
 ## Agradecimentos
 
+
 [Laercio Candido](https://github.com/LaercioCandido)
+[Bruno Vidigal](https://github.com/brunovmc)
 
 ...e todos que participaram dos encontros!
 
