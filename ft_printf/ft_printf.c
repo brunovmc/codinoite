@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bvidigal <bvidigal@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hcastanh <hcastanh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 23:04:30 by hcastanh          #+#    #+#             */
-/*   Updated: 2020/10/14 23:39:09 by bvidigal         ###   ########.fr       */
+/*   Updated: 2020/10/21 23:05:07 by hcastanh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,26 @@ int		ft_putchar(char c)
 	return (1);
 }
 
+void	ft_printf_star(va_list args, t_flags *flags)
+{
+	if (flags->star == 1)
+		flags->width = va_arg(args, int);
+	else if (flags->star == 2)
+		flags->prec = va_arg(args, int);
+	else if (flags->star == 3)
+	{
+		flags->width = va_arg(args, int);
+		flags->prec = va_arg(args, int);
+	}
+}
+
 int		ft_printf_c(va_list args, t_flags *flags)
 {
 	int		count;
 	char	c;
 
 	count = 0;
-	//aqui entra funcao da flags->star
+	ft_printf_star(args, flags);
 	c = va_arg(args, int);
 	if (flags->minus)
 		count += ft_putchar(c);
@@ -162,11 +175,27 @@ int main()
 {
 	int i;
 
-	printf("|%-10c|\n", 'a');
-	ft_printf("|%-10c|\n", 'a');
+	printf("1|%-10c|\n", 'a');
+	ft_printf("2|%-10c|\n", 'a');
 
-	printf("|%10c|\n", 'a');
-	ft_printf("|%10c|\n", 'a');
+	printf("3|%10c|\n", 'a');
+	ft_printf("4|%10c|\n", 'a');
+
+	printf("11|%*c|\n", 10, 'a');
+	ft_printf("12|%*c|\n", 10, 'a');
+	printf("13|%10.*c|\n", 5, 'a');
+	ft_printf("14|%10.*c|\n", 5, 'a');
+	printf("15|%*.*c|\n", 10, 5, 'a');
+	ft_printf("16|%*.*c|\n", 10, 5, 'a');
+
+
+
+	ft_printf("6|%*.*d|\n", 10, 5, 125);
+
+	printf("7|%10.5d|\n", 125);
+
+	ft_printf("8|%10c|\n", 'a');
+	printf("9|%10.3f|\n", 125.0);
 
 	return 0;
 }
