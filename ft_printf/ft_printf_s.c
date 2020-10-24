@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_printf_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvidigal <bvidigal@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/23 22:17:27 by bvidigal          #+#    #+#             */
-/*   Updated: 2020/10/23 22:17:27 by bvidigal         ###   ########.fr       */
+/*   Created: 2020/10/23 22:18:27 by bvidigal          #+#    #+#             */
+/*   Updated: 2020/10/23 22:18:27 by bvidigal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_putchar(char c)
+int     ft_printf_s(va_list args, t_flags *flags)
 {
-	write(1, &c, 1);
-	return (1);
-}
+    int count;
 
-int		ft_isnum(int c)
-{
-	if (c >= 48 && c <=57)
-		return (1);
-	return (0);
+    count = 0;
+    
+    return (count);
 }
