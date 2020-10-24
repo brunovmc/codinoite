@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcastanh <hcastanh@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: bvidigal <bvidigal@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 22:13:53 by hcastanh          #+#    #+#             */
-/*   Updated: 2020/10/21 23:01:54 by hcastanh         ###   ########.fr       */
+/*   Updated: 2020/10/23 21:41:32 by bvidigal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ void			ft_printf_star(va_list args, t_flags *flags);
 void			ft_init(t_flags *flags);
 int				ft_isnum(int c);
 int				ft_checkflags(const char *str, t_flags *flags);
+
+int 			main(void);
+
 
 
 #endif
