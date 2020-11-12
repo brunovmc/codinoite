@@ -14,9 +14,9 @@
 
 void ft_printf_star(va_list args, t_flags *flags)
 {
-    if (flags->star == 1)
+    if (flags->star == 1) //igual a largura
         flags->width = va_arg(args, int);
-    else if (flags->star == 2)
+    else if (flags->star == 2) //igual a precisao
         flags->prec = va_arg(args, int);
     else if (flags->star == 3)
     {

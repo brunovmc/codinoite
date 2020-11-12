@@ -24,3 +24,13 @@ int		ft_isnum(int c)
 		return (1);
 	return (0);
 }
+
+int ft_strlen(char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}

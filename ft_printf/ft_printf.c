@@ -6,7 +6,7 @@
 /*   By: bvidigal <bvidigal@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 23:04:30 by hcastanh          #+#    #+#             */
-/*   Updated: 2020/10/23 21:55:30 by bvidigal         ###   ########.fr       */
+/*   Updated: 2020/11/11 23:31:31 by bvidigal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int		ft_isconversion(va_list args, t_flags *flags)
 		count += ft_printf_c(args, flags);
 	// else if (flags->conv == 'd' || flags->conv == 'i')
 	// 	count += ft_printf_d(args, flags);
-	// else if (flags->conv == 's')
-	// 	count += ft_printf_s(args, flags);
+	else if (flags->conv == 's')
+		count += ft_printf_s(args, flags);
 	return (count);
 }
 

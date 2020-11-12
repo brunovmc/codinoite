@@ -14,9 +14,20 @@
 
 int     ft_printf_s(va_list args, t_flags *flags)
 {
-    int count;
+    int     count;
+    char    *str;
+    int     len;
+    //int     point;
 
+    ft_printf_star(args, flags);
+    str = va_arg(args, char *);
     count = 0;
-    
+    if (str == NULL)
+        str = "(null)";
+    len = ft_strlen(str);
+    //point = flags->prec > len ? len : flags->prec;
+    if (flags->len == 0 || (flags->prec == -1 && len >= flags->width))
+        while (*str)
+            count += ft_putchar(*str++);
     return (count);
 }

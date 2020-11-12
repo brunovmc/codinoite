@@ -14,6 +14,9 @@
 
 int main(void)
 {
+    char *str;
+
+    str = NULL;
     ft_printf("\n-----------------------------\n");
     ft_printf("\n--------conversion c---------\n");
     ft_printf("\n-----------------------------\n");
@@ -29,27 +32,28 @@ int main(void)
     printf("\n-----------------------------\n");
     printf("\n--------conversion s---------\n");
     printf("\n-----------------------------\n");
-    // printf("01%s\n", "teste");
-    // printf("02%-s\n", "teste");
-    // printf("03%4sG\n", "teste");
-    // printf("04%7sG\n", "teste");
-    // printf("05%8.0sG\n", "teste");
-    // printf("06%8.3sG\n", "teste");
-    // printf("07%-8.0sG\n", "teste");
-    // printf("08%-8.3sG\n", "teste");
-    // printf("09%-8.sG\n", "teste");
-    // printf("10%8sG\n", "teste");
-    // printf("11%4.5sG\n", "teste");
-    // printf("12%4.4sG\n", "teste");
-    // printf("13%4.7sG\n", "teste");
-    // printf("14%8.7sG\n", "teste");
-    // printf("15%-8.7sG\n", "teste");
-    // printf("16%-.7sG\n", "teste");
-    // printf("17%8.5sG\n", "teste");
-    // printf("18|%4.15s|\n", "42");
-    // printf("19|%4.15s|\n", NULL);
+    printf("01%s\n", "teste");
+    printf("02%-s\n", "teste");
+    printf("03%4sG\n", "teste");
+    printf("04%7sG\n", "teste");
+    printf("05%8.0sG\n", "teste");
+    printf("06%8.3sG\n", "teste");
+    printf("07%-8.0sG\n", "teste");
+    printf("08%-8.3sG\n", "teste");
+    printf("09%-8.sG\n", "teste");
+    printf("10%8sG\n", "teste");
+    printf("11%4.5sG\n", "teste");
+    printf("12%4.4sG\n", "teste");
+    printf("13%4.7sG\n", "teste");
+    printf("14%8.7sG\n", "teste");
+    printf("15%-8.7sG\n", "teste");
+    printf("16%-.7sG\n", "teste");
+    printf("17%8.5sG\n", "teste");
+    printf("18|%4.15s|\n", "42");
+    printf("19|%4.15s|\n", str);
+    printf("20|%4.3s|\n", str);
     ft_printf("---------------------------\n");
-    // ft_printf("01%s\n", "teste");
+    ft_printf("01%s\n", "teste");
     // ft_printf("02%-s\n", "teste");
     // ft_printf("03%4sG\n", "teste");
     // ft_printf("04%7sG\n", "teste");
@@ -67,6 +71,7 @@ int main(void)
     // ft_printf("16%-.7sG\n", "teste");
     // ft_printf("17%8.5sG\n", "teste");
     // ft_printf("18|%4.15s|\n", "42");
-    // ft_printf("19|%4.15s|\n", NULL);
+    // ft_printf("19|%4.15s|\n", str);
+    // ft_printf("20|%4.3s|\n", str);
     return 0;
 }
